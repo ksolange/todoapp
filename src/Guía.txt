@@ -1,0 +1,22 @@
+- debe tener instalado una versión superior de 18 de node.js
+- por cdm de forma global: npm i @angular/cli -g
+- creación proyecto: ng new todoapp --skip-tests
+- Whic stylesheet format would you like to use? CSS
+- ingrese a la carpeta: cd todoapp
+- para ejecutar siempre el proyecto: ng serve
+
+Diferencias con el html normal, se puede utilizar un h2 y darle otro valor, por medio del archivo app.component(tiene toda lo lógica de programación). Es decir en el ejemplo se tendría  un h1 q viene desde el html y otro desde el component. Enlazada gracais a templateUrl: './app.component.html',
+Lista con angular: con directivas de control con *ngForm = "let task of tasks" 
+                                                            {{ task }}  en singular porq si es en plural esta mal// array d tareas, lista de strings con iteración. Para usar el ngFroma hacer las importaciones: `import { CommonModule } from '@angular/common'; en archivo app.component.ts y en la seccion @Component : `imports : [RouterOutlet, CommonModule];` 
+_________________________________________________________________________-
+2da clase:
+- en el terminal colocar: ng g component pages/home   : 2 páginas iniciales la de home(con la página a gestionar y 2 experimentar más características que la labs  -- ng g component pages/home) todo lo q se hizo en la primera clase para aquí en lab
+- en app.routes: debe estar lo que van hacer componentes: 
+import { HomeComponent } from './pages/home/home.component'; 
+import { LabsComponent } from './pages/labs/labs.component';
+  dentro {} las clases q son en este caso objetos.
+  export: es el redireccionamiento con el path /, la página inicial el home debe quedar '' en blanco. Todo ese export lo debe saber Angular pero se debe cambiar el archivo app.component.html colocar en este <router-outlet>
+  copiar y pegar estilos style.css (q aplica a todos los componentes porq es global), en el archivo home.component.css quiere un estilo diferente/ específico
+
+
+
