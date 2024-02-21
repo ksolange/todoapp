@@ -15,8 +15,23 @@ _________________________________________________________________________-
 import { HomeComponent } from './pages/home/home.component'; 
 import { LabsComponent } from './pages/labs/labs.component';
   dentro {} las clases q son en este caso objetos.
+
+   recuerde q la carpeta home es la final q tendrá el proyecto esencial, la carpeta labs es de experimento.
+  - dirigirse al archivo app.routes.ts encontrará los estilos ya establecidos para iniciar a enfocarse en lo essencial del código. realice la importación necesaria
+
+
   export: es el redireccionamiento con el path /, la página inicial el home debe quedar '' en blanco. Todo ese export lo debe saber Angular pero se debe cambiar el archivo app.component.html colocar en este <router-outlet>
   copiar y pegar estilos style.css (q aplica a todos los componentes porq es global), en el archivo home.component.css quiere un estilo diferente/ específico
 
+
+  la lógica se manejará en el archivo app.component.html, por eso se renderiza componentes del código.
+
+___________________ 3ra clase
+ String interpolation: es la manera de transmitir datos desde la lógica "componente" hasta el temple. Es la manera de enviar datos desde nuestro componente hacia la vista. Utilizando el doble símbolo de llaves {{ }}, o también conocidos como brackets, puedes imprimir el valor de una variable, realizar operaciones matemáticas o hacer el llamado a una función dentro del código HTML. Por medio de  {{ }} ya se vuelve dinámico el html, por lo q sin estos {{ }} es siempre estático.
+ se debe tener presente q para poder usar todo esto se requiere en el archivo labs.component.ts debe estar la variable de forma pública y no privada de lo contrario NO puede usarse.  
+ Presente un error al ejecutar el servidor, el error estaba en el archivo labs.component.ts en @Component imports: [RouterOutlet, CommonModule],
+  templateUrl: './labs.component.html',
+  styleUrls: ['./labs.component.css']
+*el error era q faltaba [ ], y el }) , adicional a ello el styleUrl le faltaba la s de plural 
 
 

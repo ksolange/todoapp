@@ -8,7 +8,7 @@ import { RouterOutlet } from '@angular/router';
   standalone: true,
   imports: [RouterOutlet, CommonModule],
   templateUrl: './labs.component.html',
-  styleUrl: './labs.component.css'
+  styleUrls: ['./labs.component.css']
 })
 export class LabsComponent {
   wellcome = 'Hola todoapp';
@@ -17,4 +17,6 @@ export class LabsComponent {
     'Crear proyecto',
     'Crear componente'
   ];
+  name = 'Karen';
+  age = 15
 }
