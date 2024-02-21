@@ -35,3 +35,19 @@ ___________________ 3ra clase
 *el error era q faltaba [ ], y el }) , adicional a ello el styleUrl le faltaba la s de plural 
 
 
+___________4ta clase property binding 
+etiquetas como img, input no se cierran. Para poder usar estas etiquetas con html y tengan funcionalidad en angular, use [ ], posteriormente llame las variables q utilizo en el labs.component.ts (name y age) utilizando el button como disabled(como propiedad) inicializado en true.
+
+Para W con objetos: person = {
+
+}
+esto en el labs.component.ts
+
+en el labs.component.html
+usar etiqueta p llamando al objeto y {{ }}
+
+Como ya está el obj creado puede usar ejemplo:
+<img [src]="person.avatar">
+
+
+
