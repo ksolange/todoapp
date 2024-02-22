@@ -50,4 +50,14 @@ Como ya está el obj creado puede usar ejemplo:
 <img [src]="person.avatar">
 
 
+________________ 5ta clase
+
+Event Binding: Permite controlar los eventos que suceden en estos elementos.
+eventos más comunes clicks con button, se usa () + el elemento. Q es la forma de adjuntar un evento q debe tener una función en la lógica del componente --- estÁ  el clickHandler(){}  archivo labs.component.ts y en el labs.component.html se ejecuta dicho método.
+                    Doble clicks: angular tiene un función (dbclick) me permite reutilizar el método anterior.
+
+                    Change (change) desata los eventos en en html del input. Change lee los cambios del teclado. Elementos q envían eventos como parámetros, se llama al método en el html con ($event)
+
+
+
 
