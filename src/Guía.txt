@@ -58,6 +58,19 @@ eventos más comunes clicks con button, se usa () + el elemento. Q es la forma d
 
                     Change (change) desata los eventos en en html del input. Change lee los cambios del teclado. Elementos q envían eventos como parámetros, se llama al método en el html con ($event)
 
+                    verificar con inspeccionar.
+
+_______________________________6ta clase keydown keyup y keypress
+
+keydown: se usa en los input, eventos cont target se puede manejar como un HtmlInputElement. 
+
+Cuál es su != con change, el change funciona cada vez q de enter/click o quito el enfoque. El keydown como su nombre lo dice, cada q oprima una tecla.
+
+En keydown se le puede específicar concretamente con comandos, pero con != método en este caso a clickHandler. 
+
+KeyUp ocurre después de cualquier evento para un control causado al presionar o enviar la tecla.KeyDown ocurre para el primer control, mientras que los eventos KeyPress y KeyUp ocurren para el segundo control.
+
+verificar con inspeccionar.
 
 
 
