@@ -62,7 +62,7 @@ eventos más comunes clicks con button, se usa () + el elemento. Q es la forma d
 
 _______________________________6ta clase keydown keyup y keypress
 
-keydown: se usa en los input, eventos cont target se puede manejar como un HtmlInputElement. 
+keydown: se usa en los input, eventos cont target se puede manejar como un HtmlInputElement. (para leer el valor de event se usará .target)
 
 Cuál es su != con change, el change funciona cada vez q de enter/click o quito el enfoque. El keydown como su nombre lo dice, cada q oprima una tecla.
 
@@ -71,6 +71,16 @@ En keydown se le puede específicar concretamente con comandos, pero con != mét
 KeyUp ocurre después de cualquier evento para un control causado al presionar o enviar la tecla.KeyDown ocurre para el primer control, mientras que los eventos KeyPress y KeyUp ocurren para el segundo control.
 
 verificar con inspeccionar.
+
+___________________________7 y 8va clase 
+rendel html con herencia, pero ese árbol se conoce como DOM, en angular anteriormente era zone js(leía elementos de ese árbol, notificandole cambios en la variable, pero no sabía q elemento/ nodo había sufrido esos cambios, por tal motivo no se sabía cuál había sufrido cambios), 
+Signal: (tiene reactividad granular, ya no sé recorre todo el árbol, porq sabe de antemano cuál fue el elemento q cambio. El nodo de ese elementoenvío una notificación del cambio un scroll/ llamada actualiza los datos, actualizando la vista),  en signal ya no tiene la cajita típica de js, en este caso se usa const + variable myName = signal(''); -- en función. Y saber su valor con un console.log(myName());  siendo esta la bombilla q notifica de los cambios.  
+        Se utiliza para reactivar, necesita ser ejecutado por lo tanto requiere (  ) y q el html reaccione a esta solicitud. DEbe mencionarse para el apartado q necesita es decir oberve el archivo labscomponents.ts   name = signal('Karen');, debe importar la librería pertinente, adicional a ello no olvidar q debe ser ejecutada siempre ejm:  name().
+        En el método se puede usar value para mirar el valor del evento .target, también se puede guardar ese valor del evento, en este caso se guarda en una nueva variable.
+        si quiero modificar el valor d una signal, se usa this.name.set(newValue) --> en caso q desee modificarlo se usa set.
+        Se puede observar en el título Signals y en "soy soy "
+
+
 
 
 

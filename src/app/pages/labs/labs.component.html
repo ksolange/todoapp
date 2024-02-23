@@ -17,7 +17,7 @@
       <hr />
       <h2>{{'Hola'.repeat(4) }}</h2>
       <p> la suma de 3 + 4 es {{ 3 + 4 }} </p>
-      <p> soy soy {{ name }} tengo {{ age  }} </p>
+      <p> soy soy {{ name() }} tengo {{ age  }} </p>
       
       <hr />
       <img [src]="img" alt="">
@@ -48,6 +48,12 @@
 
       <input type="text" (keyup)="changeTextKeyboard($event)" />
       <p>I'm the input content => {{ valueInput }}</p>
+
+      <hr />
+      <h1>Signals</h1>
+      <input type="text" [value]="name()"(change)="changeHandler($event)">
+      <p>name: {{ name()}}</p>
+      <p>name: {{ name()}}</p>
 
     </div>
   </body>

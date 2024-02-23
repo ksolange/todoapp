@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
@@ -17,7 +17,7 @@ export class LabsComponent {
     'Crear proyecto',
     'Crear componente'
   ];
-  name = 'Karen';
+  name = signal('Karen');
   age = 15;
   disabled = true;
   img = 'https://w3schools.com/howto/img_avatar.png';
@@ -33,6 +33,9 @@ export class LabsComponent {
   }
 
   changeHandler(event: Event){
+    const input = event.target as HTMLInputElement;
+    const newValue = input.value;
+    this.name.set(newValue);
     console.log(event);
   }
 
@@ -47,4 +50,5 @@ export class LabsComponent {
     const elementInput = event.target as HTMLInputElement;
     this.valueInput = elementInput.value;
   }
+  
 }
