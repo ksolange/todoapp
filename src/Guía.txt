@@ -75,10 +75,27 @@ verificar con inspeccionar.
 ___________________________7 y 8va clase 
 rendel html con herencia, pero ese árbol se conoce como DOM, en angular anteriormente era zone js(leía elementos de ese árbol, notificandole cambios en la variable, pero no sabía q elemento/ nodo había sufrido esos cambios, por tal motivo no se sabía cuál había sufrido cambios), 
 Signal: (tiene reactividad granular, ya no sé recorre todo el árbol, porq sabe de antemano cuál fue el elemento q cambio. El nodo de ese elementoenvío una notificación del cambio un scroll/ llamada actualiza los datos, actualizando la vista),  en signal ya no tiene la cajita típica de js, en este caso se usa const + variable myName = signal(''); -- en función. Y saber su valor con un console.log(myName());  siendo esta la bombilla q notifica de los cambios.  
+
         Se utiliza para reactivar, necesita ser ejecutado por lo tanto requiere (  ) y q el html reaccione a esta solicitud. DEbe mencionarse para el apartado q necesita es decir oberve el archivo labscomponents.ts   name = signal('Karen');, debe importar la librería pertinente, adicional a ello no olvidar q debe ser ejecutada siempre ejm:  name().
         En el método se puede usar value para mirar el valor del evento .target, también se puede guardar ese valor del evento, en este caso se guarda en una nueva variable.
         si quiero modificar el valor d una signal, se usa this.name.set(newValue) --> en caso q desee modificarlo se usa set.
         Se puede observar en el título Signals y en "soy soy "
+
+
+________________________9na clase
+Directivas de control:
+1ro se modifica el array d tareas q se tenía en *ngFor con task, se redenriza con signal. Recordar q se debe ejecutar por tal motivo en el 1ro y 2do tasks(). 
+El ngFor de angular tiene nuevas opciones entre ellas indicandome la posición en el array con index as i.  en la misma jerarquía de {{ tasks }}, de igual forma se puede hacer el array como se se hacía en js q nos diga por cuantos elementos está constituido, lo más importante es usar {{ trasks()}} 
+
+______clase 10
+Uso *ngFor : leer el input y saber cuando hay un nuevo texto e insertalo en el array.
+Se iniciará con el Input class="new-todo" del archivo home.Component.html, para ello se debe hacer un método en home.component.ts, en este caso llamado changeHandler(){}.
+this.task.update permite modificiar/ agregar un nuevo valor, no lo borra o resetea. Update debe recibir el estado anterior, se le puede enviar un nuevo elemento, o todos lo elementos anteriores tasks, newTask] .
+En el archivo home.component.html, en la línea 10 type="text" llamar al método, (change)="changeHandler($event)", envíando el evento ---- ||| mirar en el localhost escribir en el input algo dar enter y se agrega en las opciones.
+
+método para borrar: en el archivo home.component.ts, se realizará con base al signal? la posición del elemento, gracias al index. 
+normalmente se realizaría en js con splice/split, hace q mute el array, pero no es una buena practica, una buena practica es cambiando los estados(CRUD). Es por ello q también se recibe el estado anterior por medio de update, ya q se tienen esas tareas Tasks se pueden filtrar con filter, se puede usar como borrar, filtrando todo aquello q no necesite. como es una arrow function ((task, position)) recibe 2 parámetros en este caso la tarea y la posición. Otra nueva arrow function si position es !== index.
+En el archivo home.component.html en la línea 23 <button class="destroy"(click)"deleTask()">   adicionar un click llamando al método deleTask y en la línea 19  en la lista <li *ngForm colocar un index as i;
 
 
 

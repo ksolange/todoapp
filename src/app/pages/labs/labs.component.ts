@@ -12,11 +12,12 @@ import { RouterOutlet } from '@angular/router';
 })
 export class LabsComponent {
   wellcome = 'Hola todoapp';
-  tasks = [
+  tasks = signal ([
     'Instalar el Angular CLI',
     'Crear proyecto',
-    'Crear componente'
-  ];
+    'Crear componente',
+    'Crear servicio'
+  ]);
   name = signal('Karen');
   age = 15;
   disabled = true;
