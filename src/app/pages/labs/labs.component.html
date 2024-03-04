@@ -20,12 +20,12 @@
       <p> soy soy {{ name() }} tengo {{ age  }} </p>
       
       <hr />
-      <img [src]="img" alt="">
-      <input type="text" [value]="name">
+      <img [src]="person().avatar" alt="">
+      <input type="text" [value]="person().age">
       <button [disabled]="disabled">Click me</button>
       
-      <p>person: {{person.name }} </p>
-      <p>person: {{ person.age}} </p>
+      <p>person: {{person().name }} </p>
+      <p>person: {{ person().age}} </p>
       
       <hr />
       <button (click)="clickHandler()"> Click me</button>
@@ -34,17 +34,17 @@
       <button (dblclick)="clickHandler()"> Double me</button>
 
       <p>(change)</p>
-      <input type="number" [value]="person.age"(change)="changeHandler($event)">
+      <input type="number" [value]="person().age"(change)="changeHandler($event)">
 
       <p>(keydown)</p>
-      <input type="text" [value]="person.name"(keydown)="keydownHandler($event)">
+      <input type="text" [value]="person().name"(keydown)="keydownHandler($event)">
 
       <p>(change)</p>
-      <input type="text" [value]="person.name"(change)="changeHandler($event)">
+      <input type="text" [value]="person().name"(change)="changeHandler($event)">
 
 
       <p>(keydown con shift)</p>
-      <input type="text" [value]="person.name"(keydown.shift.t)="clickHandler()">
+      <input type="text" [value]="person().name"(keydown.shift.t)="clickHandler()">
 
       <input type="text" (keyup)="changeTextKeyboard($event)" />
       <p>I'm the input content => {{ valueInput }}</p>
@@ -61,6 +61,51 @@
           {{i}} {{ task }}
         </li>
       </ul>
+      <hr />
+      <div *ngIf="1 ===1">
+        My content visible      
+      </div>
+
+      <div *ngIf="1 !==1">
+        My content no visible     
+      </div>
+
+      <hr />
+      <div *ngIf="name() === 'Karen'">
+        My content visible Karen    
+      </div>
+
+      <div *ngIf="person().name === 'Karen' && person().age > 17; else elseBlock">
+        visible!! soy Karen mayor d 17
+      </div>
+      <ng-template #elseBlock>
+        Soy karen y soy menor d 18, probando el else
+      </ng-template>
+
+      <hr />
+      <div *ngIf="person().name === 'Karen' && person().age != (38/2) ; else elseBlock">
+        visible!! soy Karen mayor d 17
+      </div>
+      <ng-template #elseBlock>
+        Soy karen, probando el else
+      </ng-template>
+
+      <hr />
+      <input type="number" [value]="person().age"(change)="changeAge($event)">
+      <div *ngIf="person().name === 'Karen' && person().age > 17 ; else elseBlock">
+        visible!! soy Karen mayor d 17
+      </div>
+      <ng-template #elseBlock>
+        Soy karen, probando el else con input
+      </ng-template>
+
+      <hr />
+      <input type="text" [value]="person().name"(change)="changeName($event)">
+      <div [ngSwitch]="person().name">
+        <p *ngSwitchCase="'Karen'"> Prueba *ngSwitch Yo soy Karen </p>
+        <p *ngSwitchCase="'Juan'"> Prueba *ngSwitch Yo soy Juan</p>
+        <p *ngSwitchDefault="">Prueba *ngSwitchDefaultNo soy ninguno de los mencionados</p>
+      </div>
 
     </div>
   </body>

@@ -18,16 +18,17 @@ export class LabsComponent {
     'Crear componente',
     'Crear servicio'
   ]);
+
   name = signal('Karen');
   age = 15;
   disabled = true;
   img = 'https://w3schools.com/howto/img_avatar.png';
 
-  person = {
+  person = signal ({
     name : 'Karen',
-    age: 15, 
+    age: 19, 
     avatar: 'https://w3schools.com/howto/img_avatar.png'
-  }
+  });
 
   clickHandler(){
     alert(' Hola se ejecuta en html ( ) ')
@@ -50,6 +51,28 @@ export class LabsComponent {
   changeTextKeyboard(event: KeyboardEvent) {
     const elementInput = event.target as HTMLInputElement;
     this.valueInput = elementInput.value;
+  }
+
+  changeAge(event: Event){
+    const input = event.target as HTMLInputElement;
+    const newValue = input.value;
+    this.person.update(prevState => {
+      return{
+        ...prevState,
+        age: parseInt(newValue, 10)
+      }
+    });
+  }
+
+  changeName(event: Event){
+    const input = event.target as HTMLInputElement;
+    const newValue = input.value;
+    this.person.update(prevState => {
+      return{
+        ...prevState,
+        name: newValue
+      }
+    });
   }
   
 }

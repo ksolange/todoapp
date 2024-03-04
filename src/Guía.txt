@@ -116,7 +116,34 @@ debug con unpipe , permite mirar como está el array, mirando el estado d la lis
 con signal se generan métodos inmutables, deja el array tal y como está. Realizar una arrow function con return d tasks map (para recorerlo y transformarlo, para mutar y cambiar la tarea d acuerdo con su posición). Usar if con la posición (trayendo todo por lo q está compuesta la tarea o task) y el index, dentro del if negamos el estado en el q está la tarea, si esta en false pasa a true o biceversa, cambiandolo.
 En el archivo home.component.html línea 26 colocar [checked] = "task.completed"  + el evento q desencadenará la tarea task, con i la posición q usamos para eliminar la tarea.  En dicho archivo línea 63 etiqueta span, agregar el contador items con {{tasks().length}}
 
+_____clase 13 ngIf:
+En el archivo labs.component.ts y labs.component.html 
+El ngIf es un condicional que sí el elemento se cumple o la condición se renderiza en el caso de *ngIf="1 ===1"> . En caso negativo no es q lo oculte, es q no fue renderizado por no cumplir la condición en el caso de *ngIf="1 !==1">. Todo se puede observar en el inspeccionar 
+Con signal <div *ngIf="name()"> el signal es el name
+        <div *ngIf="name() === 'Karen'"> Es sensible a las mayúsculas si tiene karen es ! = a Karen no se habría mostrado
+        My content visible Karen    
+      </div>
+En el archivo labs.component.ts para objetos, person = signal({ });
+Al realizar este cambio afecta los age de labs.component.html, ya q person ya no es un valor directo sino una signal. Se debe llamar como: signal en este caso person().    Se trabajaría con una signal q tiene un obj como atributo, además recibe anidación. La negación o else se puede hacer en angular: ng-template:
+<ng-template>
+        Soy karen y soy menor d 18, probando el else
+      </ng-template>
+adicional a ello se debe incluir en el div ;else    y llamar a un bloque, el nombre puede ser el q se desee. 
+; else elseBlock">
+pero para q funcione debo colocar <ng-template #elseBlock> el llamado con # + nombre del bloque.
+se crea un método changeAge para pedir la entrada de la edad con input en el archivo labs.component.ts recordar q person es obj, q se desea actualizar con un nuevo estado a partir del nuevo estado, el cual debe retornar y traer todo lo de ese estado en age newValue debe ser entero y no string.
 
+
+____________clase 14 
+Pluralidad de item con ngIf en span home.component.html
+
+cuando existen muchos *ngIf se debe usar ngSwitch es más fácil su lectura ---> práctica en archivo labs.component.html
+      div [ngSwitch]="person().name">
+        <p *ngSwitchCase="'Karen'"> Yo soy Karen </p>
+        <p *ngSwitchCase="'Juan'"> Yo soy Juan</p>
+      
+        <p *ngSwitchDefault=""></p> ----> cuando es un else o no cumple la condición
+    
 
 
 
