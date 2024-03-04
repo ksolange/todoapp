@@ -97,6 +97,26 @@ método para borrar: en el archivo home.component.ts, se realizará con base al 
 normalmente se realizaría en js con splice/split, hace q mute el array, pero no es una buena practica, una buena practica es cambiando los estados(CRUD). Es por ello q también se recibe el estado anterior por medio de update, ya q se tienen esas tareas Tasks se pueden filtrar con filter, se puede usar como borrar, filtrando todo aquello q no necesite. como es una arrow function ((task, position)) recibe 2 parámetros en este caso la tarea y la posición. Otra nueva arrow function si position es !== index.
 En el archivo home.component.html en la línea 23 <button class="destroy"(click)"deleTask()">   adicionar un click llamando al método deleTask y en la línea 19  en la lista <li *ngForm colocar un index as i;
 
+____11 clase: *ngForm para objetos.
+Método de inyección, como es común ver los objetos.
+Por buenas prácticas si es un array de tareas debe cumplir con la estructura de datos. Por ello se debe usar una interfaz. 
+Por buenas prácticas se debe hacer una carpeta llamada modelos y un nuevo archivo llamado task, en el cual tenga todos los atributos, como id, title y demás strings, su estado debe estar en boolean. Se debe realizar la importación del archivo en home.component.ts y deberá seguir el orden de este objeto con sus esos atributos. Este Signal tendrá una lista de tareas q debe cumplir, tipar la lista de Task.
+
+Se debe realizar otros métodos para dividir funciones, en este caso adicionar tareas en el archivo home.components.ts.q se encaga del input. C se producía un error cambia la línea 31 this.tasks.... se coloca después del método addTask en la línea 40. en la línea 31 colocar el this.addTask(newTask) llamando al método y al atributo.
+
+_____12 clase: método update
+debug con unpipe , permite mirar como está el array, mirando el estado d la lista e imprimir en un formato json 
+
+<pre>
+        <code>
+          {{ tasks() | json }}
+        </code>
+      </pre>
+
+con signal se generan métodos inmutables, deja el array tal y como está. Realizar una arrow function con return d tasks map (para recorerlo y transformarlo, para mutar y cambiar la tarea d acuerdo con su posición). Usar if con la posición (trayendo todo por lo q está compuesta la tarea o task) y el index, dentro del if negamos el estado en el q está la tarea, si esta en false pasa a true o biceversa, cambiandolo.
+En el archivo home.component.html línea 26 colocar [checked] = "task.completed"  + el evento q desencadenará la tarea task, con i la posición q usamos para eliminar la tarea.  En dicho archivo línea 63 etiqueta span, agregar el contador items con {{tasks().length}}
+
+
 
 
 
