@@ -1,12 +1,13 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-labs',
   standalone: true,
-  imports: [RouterOutlet, CommonModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterOutlet],
   templateUrl: './labs.component.html',
   styleUrls: ['./labs.component.css']
 })
@@ -29,6 +30,13 @@ export class LabsComponent {
     age: 19, 
     avatar: 'https://w3schools.com/howto/img_avatar.png'
   });
+
+  colorCtrl = new FormControl();
+  constructor(){
+    this.colorCtrl.valueChanges.subscribe(value => {
+      console.log(value);
+    })
+  }
 
   clickHandler(){
     alert(' Hola se ejecuta en html ( ) ')

@@ -37,6 +37,7 @@ ___________________ 3ra clase
 
 ___________4ta clase property binding 
 etiquetas como img, input no se cierran. Para poder usar estas etiquetas con html y tengan funcionalidad en angular, use [ ], posteriormente llame las variables q utilizo en el labs.component.ts (name y age) utilizando el button como disabled(como propiedad) inicializado en true.
+Property binding in Angular helps you set values for properties of HTML elements or directives. Uselo para hacer cosas como alternar funciones de botones, establecer rutas mediante programación y compartir valores entre componentes.
 
 Para W con objetos: person = {
 
@@ -144,7 +145,25 @@ cuando existen muchos *ngIf se debe usar ngSwitch es más fácil su lectura --->
       
         <p *ngSwitchDefault=""></p> ----> cuando es un else o no cumple la condición
     
+___________clase 15
+uso más profesional(frontend y backend) de los input
+en el archivo labs.component.ts importar ReactiveFormsModule, con ello se puede usar formularios reactivos, el primer elemento no será un signal sino una instancia un FormControl.
+colorCtrl = new FormControl();
+en el archivo labs.component.html, colocar input type="color" [formControl]="colorCtrl"  ---> esto ya maneja la edición y el cambio, se realiza todo desde el componente (validaciones).
+publicación del valor: <p>color: {{ colorCtrl.value }}
+desde el html se le el valor desde la forma reactiva, desde la lógica se lee ese valor desde el archivo .ts en el componente
+se puede reaccionar la lógica desde el html o del .ts : this.colorCtrl.valueChanges.subscribe()   ---> valor de cambio y suscribirse .. como el valor esta cambiando es la mejor forma d estar pendiente de este cambio  
+____________Clase 16
+formularios reactivos, inteligentes y sin información basura en home.component.html.
+en el archivo home.component.ts importar ReactiveFormsModule, crear una variable con una instancia de formControl para realizar nuevas validaciones, el primer valor por defecto es task, por el momento no requiero enviarlo, Lo necesito vacío de string. Menciono q no necesito valores nulos, q las validaciones van hacer por array d validaciones, en este caso debe ser requerido.
+en el archivo home.component.html cambia la línea 11 (change ($event)) d signal por [formControl]="newTaskCtrl" , sólo cuando ejecute click se genere una acción, en este caso la q se tenía en signal changeHandler enviandole el evento. Pero gracias al formControl ya no se neceita enviar se envía sólo desde newTaskCtrl y se limpia y quita el event de aquí, en el método archivo home.component.ts, el formControl tiene condiciones/estados para saber si el input es valido o no, según las reglas implementadas en el newTaskCtrls. Sí es valido necesito guardar ese valor en una variable, se adiciona el adiciona el valor de la tarea, y por último se limpia con un setvalue ('') vacío. Si no es valido no se agregará ninguna tarea.
 
+___________clase 17
+enel home.component.html eliminar etiqueta pre
+en el home.component.ts colocar .trim(), se encarga d quitar espacios innecesarios en el inicio y en el final. Colocarlo ene método changeHandler const value = this.newTaskCtrl.value.trim(); 
+posteriormente realizar una validación en dicho método siempre y cuando el espacio este vacío realizar el adicionar una mueva tarea. 
+Todo lo anterior también se puede simplificar con una validación en newTaskCtrl y colocar Validators.pattern(con una condición particular)
 
+etiquetas de angular <svg pero cuando se W con property Binding al usar etiqueta svg, se dee usar [attr] para modificar el atributo svg , no se puede realizar de forma directa. 
 
 
