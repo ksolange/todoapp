@@ -174,7 +174,25 @@ gracias property binding puedo modificar el style, el tamaño y el pixel q neces
       </div>
 
 _____________________clase 18 
-Activación diná,ica de clases:
+Activación dinámica de clases:
 en el archivo labs.component.ts se realiza la creación de un nuevo método nameCtrl con validador q requiere un un minímo de letras para ser valido, muy usado en contraseñas, si cumple la condición se muestra un estado y un letrero en caso q no cumpla los caracteres mencionados.
 En el archivo labs.component.html se hace un input para capturar los datos q ingresa el usuario y q cumpla con la condición anteriormente mencionada. Con una clase message-error, la cual se realiza su diseño en css, está clase.
-se usa el *ngIf para mostrar lo elemental, sin embargo no es buena practica para evitar tanto movimiento del formulario no se debe usar el ngIf, es una mala practica d usabilidad. Se verá moificado la línea 131 y 132 del archivo labs.component.html  
+se realizan varias validaciones para saber la constitución de esos caracteres y si ya han empezado a usarse.
+se usa el *ngIf para mostrar lo elemental, sin embargo no es buena practica para evitar tanto movimiento del formulario no se debe usar el ngIf, es una mala practica d usabilidad. Se verá moificado la línea 131 y 132 del archivo labs.component.html, se modifica por una clase dinámica.
+Al quitar el *ngIf, cambia por [class.show], son dos clases seguidas para mencionarlas en el css. se nombraría así: .message-error.show, sin necesidad d mencionar class, con el " . " 
+Se ve el cambio de y el elemento de "nombre incorrecto" sigue y no se mueven el formulario, en caso q la persona ingrese de forma incorrecta, sólo q está opaco.
+
+___________clase 19
+Editing mode
+Archivo home.component.html
+nuevas clases del html en este caso completed.
+en la línea 21 <li *ngFor="let task of tasks(); index as i"  agregar: [class.completed]="tasks">, [] el class + el nombre de la clase y funcionará si y sólo si el estado de una tarea es completado. El estado es boolean la podemos asignar de forma directa.
+
+Modo de edición:
+en el html  línea 20 modificar <li class="editing" colocarle clase para poder realizar ediciones, para evitar q el input quede encima de nuestro nuevo input colocar <input class="edit" [value]="task.title" /> darle valor a la tarea 
+El modo edición se activa gracias al doble click con evento dbclick.
+
+
+
+
+

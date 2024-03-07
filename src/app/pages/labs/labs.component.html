@@ -129,7 +129,7 @@
       <hr />
       <p>
         <input type="text" [formControl]="nameCtrl"><br />
-        <span class="message-error" *ngIf="nameCtrl.invalid && nameCtrl.touched">Nombre no valido, incorrecto </span>    
+        <span class="message-error" [class.show]="nameCtrl.invalid && nameCtrl.touched">Nombre no valido, incorrecto </span>    
       </p>
       <p>
         <input type="text">
