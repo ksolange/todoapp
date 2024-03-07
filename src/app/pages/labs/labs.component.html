@@ -118,6 +118,22 @@
         </svg>
       </div>
 
+
+      
+      <hr />
+      <div>
+        <input type="number" [formControl]="widthCtrl">
+        <span class="box" [style.width.px]="widthCtrl.value"></span>
+      </div>
+
+      <hr />
+      <p>
+        <input type="text" [formControl]="nameCtrl"><br />
+        <span class="message-error" *ngIf="nameCtrl.invalid && nameCtrl.touched">Nombre no valido, incorrecto </span>    
+      </p>
+      <p>
+        <input type="text">
+      </p>
     </div>
   </body>
 </html>

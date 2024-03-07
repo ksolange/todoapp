@@ -166,4 +166,15 @@ Todo lo anterior también se puede simplificar con una validación en newTaskCtr
 
 etiquetas de angular <svg pero cuando se W con property Binding al usar etiqueta svg, se dee usar [attr] para modificar el atributo svg , no se puede realizar de forma directa. 
 
+gracias property binding puedo modificar el style, el tamaño y el pixel q necesito dentro de mi html  
+<hr />
+      <div>
+        <input type="number" [formControl]="widthCtrl">
+        <span class="box" [style.width.px]="widthCtrl.value"></span>
+      </div>
 
+_____________________clase 18 
+Activación diná,ica de clases:
+en el archivo labs.component.ts se realiza la creación de un nuevo método nameCtrl con validador q requiere un un minímo de letras para ser valido, muy usado en contraseñas, si cumple la condición se muestra un estado y un letrero en caso q no cumpla los caracteres mencionados.
+En el archivo labs.component.html se hace un input para capturar los datos q ingresa el usuario y q cumpla con la condición anteriormente mencionada. Con una clase message-error, la cual se realiza su diseño en css, está clase.
+se usa el *ngIf para mostrar lo elemental, sin embargo no es buena practica para evitar tanto movimiento del formulario no se debe usar el ngIf, es una mala practica d usabilidad. Se verá moificado la línea 131 y 132 del archivo labs.component.html  
