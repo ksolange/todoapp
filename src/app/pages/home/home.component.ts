@@ -68,6 +68,50 @@ export class HomeComponent {
         }
         return task;
       })
-    })
+    });
   }
+  /* al colocar este código se daña todo.
+  this.tasks.mutate(state => {
+    const currentsTask = state[index];
+    state[index] = {
+      ...currentTask,
+      completed: !currentTask.completed
+    }
+  })
+}*/
+  
+  updateTasksEditingMode(index:number){
+    this.tasks.update((tasks) => {
+      return tasks.map((task, position) => {
+        if(position === index){
+          return {
+            ...task,
+            editing: true
+          }
+        }
+        return {
+          ...task,
+          editing: false
+        };
+      })
+    });
+  }
+
+
+  updateTasksText(index:number, event: Event){
+    const input = event.target as HTMLInputElement;
+    this.tasks.update((tasks) => {
+      return tasks.map((task, position) => {
+        if(position === index){
+          return {
+            ...task,
+            text: input.value, 
+            editing: false
+          }
+        }
+        return task;
+      })
+    });
+  }
+
 }

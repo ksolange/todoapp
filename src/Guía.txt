@@ -190,7 +190,10 @@ en la línea 21 <li *ngFor="let task of tasks(); index as i"  agregar: [class.co
 
 Modo de edición:
 en el html  línea 20 modificar <li class="editing" colocarle clase para poder realizar ediciones, para evitar q el input quede encima de nuestro nuevo input colocar <input class="edit" [value]="task.title" /> darle valor a la tarea 
-El modo edición se activa gracias al doble click con evento dbclick.
+El modo edición se activa gracias al doble click con evento dbclick. cambia el class="editing" lo vuelve más eficaz, pero necesita un estado el cual se debe hacer desde import{Task} from './../../models/task.model'; el task.component.ts,permite ver la tarea en modo de edición,  editing?: boolean; el ? es opcional.
+Creo un método updateTasksEditingMode envío el index q es númerico. en el home.component.ts y en lo agrego en html línea 21 <li (dbclick)="updateTasksEditingMode(i), finalmente adicionar [class.editing]="task.editing" en el html el llamado. Para evitar q se editen dos campos, el otro campo del input en el archivo home.component.ts en el método updateTasksEditingMode en el segundo return colocar ... task, Editing: false. Actualización del texto en el archivo home.component.html: envío keydown con enter, y llamo al método updateTasksText q está en home.component.ts. En esté se recibe como parámetro el identificador y el evento const input = event.target as HTMLInputElement;  text: input.value, 
+            editing: false   y en el archivo home.component.html    (keydown.enter)="updateTasksText(i, $event)"
+
 
 
 
